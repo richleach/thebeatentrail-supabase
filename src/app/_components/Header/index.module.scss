@@ -1,0 +1,32 @@
+@use '../../_css/queries.scss' as *;
+
+.header {
+  padding: var(--base) 0;
+  background-color: rgb(245, 209, 87);  
+  border-bottom: thin solid purple;
+  margin-bottom: 20px;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: calc(var(--base) / 2) var(--base);
+  //border: thin solid blue;
+}
+
+.logo {
+  width: 150px;
+}
+
+.beatenTrailLogo {
+  color: rgb(173, 146, 52);
+}
+
+
+
+:global([data-theme="light"]) {
+  .logo {
+    filter: invert(1);
+  }
+}

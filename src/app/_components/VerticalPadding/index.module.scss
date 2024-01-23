@@ -1,0 +1,16 @@
+.top-large {
+  padding-top: 30px;
+}
+
+.top-medium {
+  padding-top: calc(var(--block-padding) / 2);
+}
+
+.bottom-large {
+  //padding-bottom: var(--block-padding);
+  padding-bottom: 20px;
+}
+
+.bottom-medium {
+  padding-bottom: calc(var(--block-padding) / 2);
+}

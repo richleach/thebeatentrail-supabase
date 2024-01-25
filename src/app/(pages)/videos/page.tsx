@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import style from 'styled-jsx/style'
 
 import { Gutter } from '../../_components/Gutter'
 
@@ -8,8 +9,9 @@ import classes from './index.module.scss'
 
 async function getData() {
   const res = await fetch(
-    `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=36&playlistId=UUnIyytMWGt41WZAc6QocKcQ&key=${process.env.YOUTUBE_API_KEY}`,
+    `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&type=short&playlistId=UUnIyytMWGt41WZAc6QocKcQ&key=${process.env.YOUTUBE_API_KEY}`,
   )
+  //playlistId=UUnIyytMWGt41WZAc6QocKcQ
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -23,7 +25,7 @@ async function getData() {
 
 export default async function PlaylistPage() {
   const data = await getData()
-
+  //console.log(data.items.snippet)
   return (
     <Fragment>
       <Gutter>
@@ -32,6 +34,16 @@ export default async function PlaylistPage() {
         <hr style={{ color: 'purple' }} />
         <br />
         <div className="bg-blue-400 flex flex-row justify-center" style={{ paddingBottom: '30px' }}>
+          <div style={{ paddingBottom: '20px' }}>
+            For our entire video collection visit our Youtube channel at &nbsp;
+            <Link
+              href="https://www.youtube.com/@TheBeatenTrail"
+              target="_blank"
+              style={{ textDecoration: 'none' }}
+            >
+              <strong>www.youtube.com/@TheBeatenTrail</strong>
+            </Link>
+          </div>
           <div className={classes.wrap}>
             {data.items.map(item => (
               <div

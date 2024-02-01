@@ -97,9 +97,17 @@ export default buildConfig({
   cors: ['https://checkout.stripe.com', process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(
     Boolean,
   ),
-  csrf: ['https://checkout.stripe.com', process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(
-    Boolean,
-  ),
+  csrf: [
+    'https://checkout.stripe.com',
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
+    'https://thebeatentrail-supabase.vercel.app/',
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
+    'https://thebeatentrail-supabase-jhico4t77-michael-herrmanns-projects.vercel.app/',
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
+    'https://thebeatentrail-supabase-git-main-michael-herrmanns-projects.vercel.app/',
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
+  ].filter(Boolean),
+
   endpoints: [
     {
       path: '/create-payment-intent',
